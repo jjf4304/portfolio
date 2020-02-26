@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1634451008997654}
+  m_IsPrefabAsset: 1
+--- !u!1 &1634451008997654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4973206852303460}
+  - component: {fileID: 114524108092248620}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4973206852303460
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634451008997654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.037499998, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114524108092248620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634451008997654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e92ba7cacabfc54e83e8f970e9ab1c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 1676643239213240, guid: fd0ce74fe73109c4cb3ee45c6e1064e9, type: 2}
+  player2: {fileID: 0}
+  camera: {fileID: 0}
+  roomCenterStart: {fileID: 0}
+  centerRoomPrefab: {fileID: 1474997958738724, guid: 31ba4f5a69ad5ac4abb327bcd9f3e7e6,
+    type: 2}
+  topLeftCornerRoom: {fileID: 1912354467166616, guid: cf6c67e9dd2616245937bd71d2191e68,
+    type: 2}
+  topRightCornerRoom: {fileID: 1754074370006264, guid: 742ae8a4772bf5847a381a1fcbb29c87,
+    type: 2}
+  botRightCornerRoom: {fileID: 1019536857951796, guid: 45cb93d2d5b38db4f94e6e150b86bcdc,
+    type: 2}
+  botLeftCornerRoom: {fileID: 1710635250163546, guid: 2e81e8bdcee69bf4d97f247447d1e456,
+    type: 2}
+  player1Prefab: {fileID: 1676643239213240, guid: fd0ce74fe73109c4cb3ee45c6e1064e9,
+    type: 2}
+  player2Prefab: {fileID: 0}
+  chestPrefab: {fileID: 1845554631743242, guid: c6e6607cfde57ec4c9f03a617322ac37,
+    type: 2}
+  boss: {fileID: 1819148804686510, guid: 57aa1f6934859ec40aca92b0bb506e44, type: 2}
+  listOfChests: []
+  sizeOfGrid: 3
+  currentXPos: 0
+  currentYPos: 0

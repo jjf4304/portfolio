@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: 188c2eb7ac2ebae448ae1220f4cbd066
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: CarapaceShell016
+    100004: Centipede
+    100006: CentipedeHub010
+    100008: CentipedeHub011
+    100010: CentipedeHub011 1
+    100012: CentipedeHub012
+    100014: CentipedeHub013
+    100016: CentipedeHub014
+    100018: CentipedeHub015
+    100020: CentipedeHub1
+    100022: CentipedeHub1Spine
+    100024: CentipedeHub2
+    100026: CentipedeHub2Spine
+    100028: CentipedeHub3
+    100030: CentipedeHub3Spine
+    100032: CentipedeHub4
+    100034: CentipedeHub4Spine
+    100036: CentipedeHub5
+    100038: CentipedeHub5Spine
+    100040: CentipedeHub6
+    100042: CentipedeHub6Spine
+    100044: CentipedeHub7
+    100046: CentipedeHub7Spine
+    100048: CentipedeHub7Spine 1
+    100050: CentipedeHub7Spine 2
+    100052: CentipedeHub7Spine 3
+    100054: CentipedeHub7Spine 4
+    100056: CentipedeHub8
+    100058: CentipedeHub8Spine
+    100060: CentipedeHub8Spine 1
+    100062: CentipedeHub9
+    100064: CentipedeLArm1
+    100066: CentipedeLArm1 1
+    100068: CentipedeLArm2
+    100070: CentipedeLArm2 1
+    100072: CentipedeLArm3
+    100074: CentipedeLArmCollarbone
+    100076: CentipedeLArmCollarbone 1
+    100078: CentipedeLArmPalm
+    100080: CentipedeLArmPalm 1
+    100082: CentipedeRArm1
+    100084: CentipedeRArm1 1
+    100086: CentipedeRArm2
+    100088: CentipedeRArm2 1
+    100090: CentipedeRArm3
+    100092: CentipedeRArmCollarbone
+    100094: CentipedeRArmCollarbone 1
+    100096: CentipedeRArmPalm
+    100098: CentipedeRArmPalm 1
+    100100: CentipedeSpine
+    100102: CentipedeSpine 1
+    400000: //RootNode
+    400002: CarapaceShell016
+    400004: Centipede
+    400006: CentipedeHub010
+    400008: CentipedeHub011
+    400010: CentipedeHub011 1
+    400012: CentipedeHub012
+    400014: CentipedeHub013
+    400016: CentipedeHub014
+    400018: CentipedeHub015
+    400020: CentipedeHub1
+    400022: CentipedeHub1Spine
+    400024: CentipedeHub2
+    400026: CentipedeHub2Spine
+    400028: CentipedeHub3
+    400030: CentipedeHub3Spine
+    400032: CentipedeHub4
+    400034: CentipedeHub4Spine
+    400036: CentipedeHub5
+    400038: CentipedeHub5Spine
+    400040: CentipedeHub6
+    400042: CentipedeHub6Spine
+    400044: CentipedeHub7
+    400046: CentipedeHub7Spine
+    400048: CentipedeHub7Spine 1
+    400050: CentipedeHub7Spine 2
+    400052: CentipedeHub7Spine 3
+    400054: CentipedeHub7Spine 4
+    400056: CentipedeHub8
+    400058: CentipedeHub8Spine
+    400060: CentipedeHub8Spine 1
+    400062: CentipedeHub9
+    400064: CentipedeLArm1
+    400066: CentipedeLArm1 1
+    400068: CentipedeLArm2
+    400070: CentipedeLArm2 1
+    400072: CentipedeLArm3
+    400074: CentipedeLArmCollarbone
+    400076: CentipedeLArmCollarbone 1
+    400078: CentipedeLArmPalm
+    400080: CentipedeLArmPalm 1
+    400082: CentipedeRArm1
+    400084: CentipedeRArm1 1
+    400086: CentipedeRArm2
+    400088: CentipedeRArm2 1
+    400090: CentipedeRArm3
+    400092: CentipedeRArmCollarbone
+    400094: CentipedeRArmCollarbone 1
+    400096: CentipedeRArmPalm
+    400098: CentipedeRArmPalm 1
+    400100: CentipedeSpine
+    400102: CentipedeSpine 1
+    2100000: No Name
+    4300000: CarapaceShell016
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: CarapaceShell016
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
