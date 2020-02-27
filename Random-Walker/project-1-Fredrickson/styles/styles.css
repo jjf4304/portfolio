@@ -1,0 +1,71 @@
+canvas{
+    box-shadow: 5px 5px 5px rgba(0,0,0);
+    border-style: solid;
+    border-color: black;
+    width: auto;
+    background-color: whitesmoke;
+}
+
+body{
+    padding-left: 10px;
+    background-color: darkslategrey;
+    color: orange;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+#font{
+	height:0;
+	width:0;
+	overflow:hidden;
+}
+
+#customFont{
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.button{
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+input, select{
+    box-shadow: 5px 5px 5px rgba(0,0,0);
+}
+
+div{
+    margin-bottom: 5px;
+}
+
+section{
+    display: block;
+}
+
+section#info{
+    width: 25%;
+    margin-left: 20px;
+    float: left;
+}
+
+section#canvasSection{
+    width: auto;
+    text-align: center;
+    clear: both;
+}
+
+section#controls{
+    width:25%;
+    float: left;
+    margin-left:25%;
+    text-align: center;
+}
+
+h1,h3{
+    color: orange;
+    text-align: center;
+    text-shadow: 3px 3px 3px rgba(0,0,0);
+}
+footer{
+    clear: both;
+    text-align: center;
+}

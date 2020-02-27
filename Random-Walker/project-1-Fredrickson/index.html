@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Project 1 Fredrickson</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet"> 
+    <script src="src/index.js"></script>
+    <script src="src/jjfLIB.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Colored Random Walker</h1>
+		<div id="font">
+		<p id="customFont">Custom Font Loaded</p>
+		</div>
+    </header>
+    
+
+    <main>
+        <section id="canvasSection">
+
+            <canvas id="canvas" width="800" height="500" title="Click on canvas to spawn based on below option.">
+    
+            </canvas>
+    
+        </section>
+    
+        <section id="controls">
+    
+            <h3>Press Play to begin (It takes a second to begin).</h3>
+    
+            <div>
+                <input type="button" class="button" id="play" value="Play">   
+                <input type="button" class="button" id="pause" value="Pause"> 
+                <input type="button" class="button" id="reset" value="Reset">   
+                <input type="button" class="button" id="save" value="Save">
+            </div>
+        
+            <div>
+                <label for="clickOptions" title="Select an Option for what happens on clicks."> On Click Options</label>
+                <select id="clickOptions" title="Select an Option for what happens on clicks.">
+                    <option value="none" selected>None</option>
+                    <option value="bSpawner">Blue Spawner</option>
+                    <option value="rSpawner">Red Spawner</option>
+                    <option value="gSpawner">Green Spawner</option>
+                    <option value="oSpawner">Orange Spawner</option>
+                    <option value="block">Block</option>
+                    <option value="delete">Delete</option>
+                </select>
+        
+            </div>  
+            
+            <div>
+                <label for="presetOptions" title="Select a preset for the canvas.">Canvas Presets</label>
+                <select id="presetOptions" title="Select a preset for the canvas.">
+                    <option value="blank" selected>Blank</option>
+                    <option value="smiley">Smiley</option>
+                </select>
+        
+            </div>      
+        
+            <div>
+                <label for="fps" title="The speed for the simulation.">Select a FPS:</label>
+                <select id="fps" title="The speed for the simulation.">
+                    <option value="10" selected>10</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                </select> 
+            </div>
+    
+            <div>
+                <label for="collide">Will Walkers collide?</label>
+                <input type="checkbox" id="collide" value="collide">
+            </div>
+    
+            <div>
+                <label for="death">Will Walkers die over time?</label>
+                <input type="checkbox" id="death" value="death">
+            </div>
+    
+            <div>
+                <label for="deathTime" title="Range: 1-10 seconds. Disabled if above is not enabled.">Seconds until death. (Will Reset)</label>
+                <input type="number" id="deathTime" value="1" step="1" min="0" max="10" disabled title="Range: 1-10 seconds">
+            </div>
+    
+        </section>
+
+        <section id="info">
+            <h3>Information</h3>
+            <p>Welcome to the Interactive Random Walker!</p>
+            <p>Use the controls to the left to draw walker spawners and obstacles on the canvas.</p>
+            <p>Play around creating spawners and obstacles for the walkers, then save it so you can see how it changes!</p>
+            <p>Walkers have many applications, such as mapping neuron pathways, estimating stocks, and more. Check <a href="https://en.wikipedia.org/wiki/Random_walk">https://en.wikipedia.org/wiki/Random_walk</a>to learn more. </p>
+        </section>
+
+    </main>
+    
+    <footer>
+        <p>Created for IGME-330</p>
+        <p>&copy;Joshua Fredrickson.</p>
+    </footer>
+
+    
+</body>
+
+
+</html>
