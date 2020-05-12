@@ -1,0 +1,4 @@
+﻿  PE18.cpp
+D:\repos\IGME 209\PE18\PE18\PE18.cpp(21,20): warning C4018: '<': signed/unsigned mismatch
+D:\repos\IGME 209\PE18\PE18\PE18.cpp(42,20): warning C4018: '<': signed/unsigned mismatch
+  PE18.vcxproj -> D:\repos\IGME 209\PE18\Debug\PE18.exe

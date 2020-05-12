@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>Crypto Currency List</title>
+    
+    <!-- Add this to <head> -->
+
+    <!-- Load required Bootstrap and BootstrapVue CSS -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+    <!-- Load polyfills to support older browsers -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+	<style>
+		/* .myheader grabbed from Bootstrap's jumbotron example - https://getbootstrap.com/docs/4.0/examples/jumbotron/ */
+		.myheader{
+			background-color: #e9ecef;
+			padding: 4rem 2rem;
+			margin-bottom:2rem;
+		}
+		
+		input.form-control{
+			display: inline-block;
+			width: 20rem;
+			margin-right:1rem;
+		}
+		.search-row{
+			margin-bottom:1rem;
+		}
+	</style>
+</head>
+<body>
+<div id="app">
+	<div class="myheader">
+		<h1 class="display-5">{{title}}</h1>
+	</div>			
+	
+	<div class="container">
+		<div class="row search-row">
+			<div class="col-md-12">
+                Number of Results to Show:
+				<input type="number" min=0 max=50 step=1 v-model ="resultLimit"></input>
+				<button class="btn btn-outline-success" type="submit" v-on:click="search">Search</button>
+			</div>
+		</div> <!-- end row -->
+		
+		<div class="row">
+			<div class="col-md-12">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <th scope = "col">Name</th>
+                        <th scope = "col">ID</th>
+                        <th scope = "col">Market</th>
+                        <th scope = "col">Last</th>
+                    </thead>
+                    <tbody v-for="r in results.slice(0, resultLimit)">
+                        <td>{{r.name}}</td>
+                        <td>{{r.id}}</td>
+                        <td>{{r.market}}</td>
+                        <td>{{r.last}}</td>
+                    </tbody>
+                </table>
+			</div>
+		</div> <!-- end row -->
+	</div> <!-- end container -->	
+</div> <!-- end #app -->
+
+<script>
+const app = new Vue({
+	el: '#app',
+	data: {
+        title: "Crypto Prices.",
+        results: [],
+        resultLimit: 1
+	},
+    created(){
+        this.search();
+    },
+	methods:{
+	search(){
+		//if (! this.term.trim()) return;
+		fetch("https://api.coingecko.com/api/v3/indexes")
+		.then(response => {
+			if(!response.ok){
+				throw Error(`ERROR: ${response.statusText}`);
+			}
+			return response.json();
+		})
+		.then(json => {	
+			console.log(json);
+            this.results = json;
+            this.resultLimit = this.results.length;
+		});
+	   } // end search
+	} // end methods
+});
+
+</script>
+</body>
+</html>

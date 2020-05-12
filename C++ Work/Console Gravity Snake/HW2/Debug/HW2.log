@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\repos\IGME 209\HW2\HW2\main.cpp(82,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  HW2.vcxproj -> D:\repos\IGME 209\HW2\Debug\HW2.exe
