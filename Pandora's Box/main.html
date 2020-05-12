@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Pandora's Box: DM's Aid</title>
+        <link href="styles/default-styles.css" rel="stylesheet"/>
+        <script src="./src/loader.js" type="module"></script>
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1 class = "centered">Pandora's Box: A DnD DM Aid</h1>
+        </header>
+
+        <div id="loadingPage">
+            <!--Img from https://gifer.com/en/4V0b-->
+            <img src="images/loader.gif" alt="Loading">
+        </div>
+
+        <div id="font">
+			<p id="customFont">Custom Font Loaded</p>
+		</div>
+
+        <main>
+
+
+            <div id="left-side">
+                <h3 class="centered">Monster List</h3>
+                <div class="equidistant-container">
+                    <div>
+                        <label for="sort">Sort By:</label>
+                        <select id="sort">
+                            <option value="ascending" selected>Ascending</option>
+                            <option value="descending">Descending</option>
+                        </select>
+                    </div>
+                    <input type="text" id="search-bar" class="inactive-search" value="Enter search term">
+
+                </div>
+                <div class = "list-box">
+                    <div id="monster-list"></div>
+                </div>
+                <div class = "favorite-box">
+                    <button id="showFavorites" type="button">Show Past Selections</button>
+                    <button id="showMain" type="button">Show Main List</button>
+                    <button id="saveFavorites" type="button">Save Current Selection</button>
+                    <button id="deleteFavorites" type="button">Clear Local Storage</button>
+                </div>
+                <div style="clear: both;"></div>
+                <div class="dice-box">
+                    <p>Roll <input type="number" value="1" min="1" max="20" id="rollNum">
+                         d <input type="number" value="1" min="1" max="20" id="dieSides">
+                          with a <input type="number" value="0" min="-20" max="20" id="dieMod"> modifier.</p>
+                    <button id="rollDice" type="button">ROLL</button>
+                    <p></p>
+                    <label for ="resultOfRoll">Result:</label>
+                    <input type="text" readonly id="resultOfRoll">
+                </div>
+            </div>
+
+            <div id="right-side">
+                <h3 class="centered">Selected Monster Details:</h3>
+                <div class="list-box" id="monster-stats">
+                    <h2 class="centered">Instructions</h2>
+                    <ul>
+                        <li>Select a monster from the list on the left to view its stats.</li>
+                        <li>The Monster List can be sorted either alphabetically or reverse alphabetically, and it can be searched using the searchbar and hitting enter.</li>
+                        <li>To save monsters for future easy use, like an encounter, click on the monster and then click Save Current Selection.</li>
+                        <li>You can view this list by clicking Show Past Selections and go back by clicking Show Main List.</li>
+                        <li>To Roll, set up the number of dice, the number of sides per die, and the modifier then click Roll.</li>
+                        <li>UI settings will be saved for future use in local storage. To clear that, click Clear Local Storage</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <footer>
+            <p class="centered">Developed by Joshua Fredrickson</p>
+            <p class="centered">Uses <a href="http://www.dnd5eapi.co/">D&D 5e API</a> and <a href="https://rolz.org/help/api">Rolz Dice API</a></p>
+        </footer>
+
+    </body>
+
+</html>

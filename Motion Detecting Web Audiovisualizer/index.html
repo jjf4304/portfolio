@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Fredrickson Project 2</title>
+	<link href="styles/styles.css" type="text/css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Syncopate&display=swap" rel="stylesheet">
+	<script src="./src/loader.js" type="module"></script>
+</head>
+<body>
+	<header>
+		<h1>Audio Visualizer</h1>
+		<div id="font">
+			<p id="customFont">Custom Font Loaded</p>
+		</div>
+	</header>
+<main>
+	<div id="controls">
+		<h2>Controls:</h2>
+		<section>
+			<button id="playButton" data-playing="no"></button>
+			<button id="fsButton">Full Screen</button>
+		</section>
+
+		<section>
+			<label for="trackSelect">Track Select</label>
+			<select id="trackSelect">
+				<option value="1" selected>We Saw The End - Rabbit Junk</option>
+				<option value="2">Epic Rock - Robert Slump</option>
+				<option value="3">Extreme Fight - Marcos Bolanos</option>
+			</select>
+		</section>
+
+		<section>
+			<input type="checkbox" id="motionCB" title="Motion Controls using a webcam. Motion in the right side of your camera view to control the right side of the app, moving a cursor like object to control buttons."><label for="motionCB" title="Motion Controls using a webcam. Motion in the right side of your camera view to control the right side of the app, moving a cursor like object to control buttons.">Use Motion Tracking (Requires webcam, slow movements work best.)</label>
+		</section>
+
+		<section>
+			<input type="checkbox" id="circleCB" checked><label for="circleCB">Show Circle Visualizer</label>
+			<input type="checkbox" id="rotateCB" checked><label for="rotateCB">Rotate Circle</label>
+		</section>
+
+		<section>
+			<h4>Line Options:</h4>
+			<ul>
+				<li><input type="checkbox" id="linesCB" checked><label for="linesCB">Show Lines</label></li>
+				<li><input type = "radio" id="freqLinesRB" name="lines" value= "freqLines" checked><label for="freqLinesRB">Frequency</label></li>
+				<li><input type = "radio" id="waveLinesRB" name="lines" value= "waveLines"><label for="waveLinesRB">Wave Form</label></li>
+				<li><input type ="radio" id="bezierRB" name="lines" value="bezier"><label for="bezierRB">Bezier</label></li>
+			</ul>
+		</section>
+
+		<section>
+			<h4>Color Options:</h4>
+			<ul>
+				<li><input type ="checkbox" id="invertCB"><label for="invertCB">Invert Canvas</label></li>
+				<li><input type ="checkbox" id="noiseCB"><label for="noiseCB">Noise</label></li>
+				<li><input type = "radio" id="noColorRB" name="color" value= "noColor"><label for="noColorRB">Whitesmoke</label></li>
+				<li><input type = "radio" id="colorRB" name="color" value= "colorChange"><label for="colorRB">Change Colors</label></li>
+				<li><input type ="radio" id="gradientRB" name="color" value="gradient" checked><label for="gradientRB">Use Color Gradient</label></li>
+				<li><input type ="radio" id="gradientChangeRB" name="color" value="gradientChange"><label for="gradientChangeRB">Use Changing Color Gradient</label></li>
+			</ul>
+			
+		</section>
+
+		<section>
+			<label for="volumeSlider">Volume: </label>
+			<input type = "range" id="volumeSlider" min="0" max = "1" value=".5" step=".01">
+		</section>
+		
+		<section>
+			<label for="distortSlider">Distortion:</label>
+			<input type = "range" id="distortSlider" min="0" max="100" value="0" step="1">
+		</section>
+
+		<section>
+			<label for="bassSlider">Bass:</label>
+			<input type = "range" id="bassSlider" min="0" max="40" value="0" step="1">
+		</section>
+	</div>
+	<div id="output">
+		<video width = "400" height = "600"></video>
+		<canvas id="main" width="1000" height="600"></canvas>
+		<canvas id="cam" width = "1000" height = "600"></canvas>
+	</div>
+</main>
+<footer>
+	<p>Created by Joshua Fredrickson</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+Side "bar graphs"?
+
+"Circular" center visualizer node, consisting of groups of samples. Maybe groups of three or four? In total, the "bar" is drawn by doing a punch of lines, their peaks being made by iterating 
+the four samples in each section. So its not always flat ended, but gives a more spiky bar. Get a number of samples divisible by 4. draw straight away from the center in the amount 
+
+Can have "stars" emanating from the center point
+
+
+
+
+
+MOTION TRACKING IDEAS
+IF ANY MOTION TRACKING, SET IT TOO BE OPTIONAL
+
+-Area for motion tracking hand to increase gain?
+-use of head tracking to display location of central visualizer
+-Or maybe with this, have like a "headbang" mode that increases the gain/effect on song based on head/hand movement?

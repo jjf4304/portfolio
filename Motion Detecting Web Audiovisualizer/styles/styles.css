@@ -1,0 +1,72 @@
+body {
+  background: whitesmoke;
+  font-family: 'Syncopate', sans-serif;
+}
+
+h1{
+  margin-left: 2em;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li{
+  margin:.5em;
+}
+
+canvas {
+  box-shadow: 5px 5px 5px rgba(0,0,0);
+  border-style: solid;
+  border-color: black;
+  width: auto;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+#cam{
+  position: absolute;
+  visibility: hidden;
+}
+
+
+#font{
+	height:0;
+	width:0;
+	overflow:hidden;
+}
+
+video{
+  position: absolute;
+  visibility: hidden;
+}
+
+#controls{
+  margin-left: 1em;
+  width: 30%;
+  display: block;
+  float: left;
+}
+section{
+  margin-bottom: 1em;
+
+}
+
+button{
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1em;
+  width: 10em;
+}
+
+button[data-playing="yes"]:after{
+  content: "Pause";
+}
+
+button[data-playing="no"]:after{
+  content: "Play";
+}
+
+footer{
+  clear: both;
+  text-align:center;
+}
