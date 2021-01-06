@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>The Quest Board</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/styles.css"/>
+</head>
+<body>
+  <div id="title">
+    <div id="topBar">
+        <div class="smallTitleImage" id="logoutButton"><a href="/logout"></a></div>
+        <div class="titleImage"></div>
+        <div class="smallTitleImage" id="premButton"><a href="/becomePremium"></a></div>
+    </div>
+  </div>
+
+  <section id="questBoard">
+  </section>
+
+  <div id="buttons">
+    <div class="uiButton" id="makerButton">
+
+    </div>
+    <div class="uiButton" id="changePassButton">
+      
+    </div>
+
+  </div>
+  
+  <div class="rightHidden" id="makePost">
+  </div>
+
+  <div class="rightHidden"id="changePassDiv">
+  </div>
+  
+  <div id="fullPost">
+    <div id="fullDetails"></div>
+    <div id="fullReplyField"></div>
+    <div id="fullReplies"></div>
+  </div>
+  <div id="error" class="leftHidden">
+
+  </div>
+  <script src="/assets/bundle.js"></script>
+  <div id="darkLayer"></div>
+</body>
+</html>

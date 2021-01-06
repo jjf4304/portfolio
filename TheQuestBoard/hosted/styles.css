@@ -1,0 +1,376 @@
+
+/*W3Schools helped in multiple places for minor lookups
+https://www.w3schools.com/ */
+
+
+body{
+    background-image: url(./img/guild_background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    height: 100%;
+}
+
+#title{
+    background-image: url(./img/blank_board.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 120%;
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+
+#topBar{
+    display: grid;
+    width: 80%;
+    height: 10%;
+    margin: auto;
+    grid-template-columns: 25% 40% 25%;
+    column-gap: 4%;
+    align-items: center;
+    justify-items: center;
+    padding-bottom: 20px;
+}
+
+/*Image buttons styles*/
+
+.titleImage{
+    display: block;
+    background-image: url(./img/Asset3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 40%;
+}
+
+.smallTitleImage:hover{
+    filter:drop-shadow(10px 10px 15px black) drop-shadow(-10px -10px 15px black);
+
+}
+
+.smallTitleImage{
+    display: block;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    transform: translate(0%, 30%);
+}
+
+.smallTitleImage a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#premButton{
+    background-image: url(./img/premium.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+}
+
+#logoutButton{
+    background-image: url(./img/logout.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+}
+
+#loginButton{
+    background-image: url(./img/login.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+}
+
+#signupButton{
+    background-image: url(./img/sign_up.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+}
+
+/*Questboard styles*/
+
+#questBoard{
+    margin: auto;
+    width: 90%;
+    height: 70%;
+    background-image: url(./img/blank_board.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    filter:drop-shadow(20px 20px 30px black) drop-shadow(-20px -20px 30px black);
+}
+
+.posts{
+    display: grid;
+    width: 90%;
+    height: 100%;
+    grid-template-columns: 20% 20% 20%;
+    grid-auto-rows: 30%;
+    column-gap: 12%;
+    row-gap: 100px;
+    margin: auto;
+    overflow-y: scroll;
+    align-items: center;
+    justify-items: center;
+}
+
+.postNode{
+    display: block;
+    width: 85%;
+    background-image: url(./img/small_post_1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter:drop-shadow(8px 8px 10px black);
+    height: 100%;
+}
+
+.postNode:hover{
+    filter:drop-shadow(20px 20px 30px black) drop-shadow(-20px -20px 30px black);
+
+}
+
+.postNode h2, h4{
+    text-align: center;
+}
+
+.postNode:nth-child(3n){
+    transform: rotate(2deg);
+}
+
+.postNode:nth-child(1n){
+    transform: rotate(2deg);
+}
+
+.postNode:nth-child(2n){
+    transform: rotate(-2deg);
+}
+
+/*styles for a dark opacity layer, help with this on w3schools.com 
+(can't find the page now)*/
+
+#darkLayer{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 19;
+
+}
+
+#errorDiv{
+    display: block;
+    background-image: url(./img/blank_board.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-style: outset;
+    border-color: gold;
+    color: gold;
+    width: 400px;
+    top: 30%;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    position: absolute;
+    left: -40%;
+    z-index: 20;
+}
+
+/*Button Styles*/
+
+#buttons{
+    display: grid;
+    width: 90%;
+    height: 150px;
+    grid-template-columns: 40% 40%;
+    column-gap: 10%;
+    margin: auto;
+}
+
+.uiButton{
+    padding: 30px;
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    font-size: 1.3em;
+    color: gold;
+}
+
+.uiButton button{
+    background-color: rgb(27, 27, 27);
+    border-style: outset;
+    border-color: gold;
+    border-radius: 2px;
+    box-shadow: 10px 10px 10px gray;
+
+}
+
+.uiButton button:hover{
+    border-color: gold;
+    box-shadow: 10px 10px 10px rgb(32, 32, 32);
+}
+
+.uiButton button:active{
+    border-color: gold;
+    box-shadow: 13px 13px 10px black;
+    background-color: black;
+}
+
+/*Styles for full post page*/
+
+#fullPost{
+    width: 40%;
+    height: 70%;
+    background-image: url(./img/full_post.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    margin-top: 50px;
+    filter:drop-shadow(0px 30px 30px black) drop-shadow(0px -30px 30px black);
+    overflow-y: scroll;
+    position: absolute;
+    top: 150%;
+    left: 30%;
+    z-index: 20;
+    text-align: center;
+}
+
+#fullPost div{
+    width: 80%;
+    margin: auto;
+}
+
+#postForm{
+    width: 70%;
+    margin: auto;
+}
+
+/*Hidden rightside modals*/
+.rightHidden{
+    width: 40%;
+    height: 70%;
+    background-image: url(./img/full_post.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    margin-top: 50px;
+    filter:drop-shadow(0px 30px 30px black) drop-shadow(0px -30px 30px black);
+    overflow-y: scroll;
+    position: absolute;
+    top: 20%;
+    left: 150%;
+    z-index: 20;
+    text-align: center;
+
+}
+
+
+
+#closeError{
+    width: 100px;
+    color: black;
+    background-color: gold;
+}
+
+#closeError:hover{
+    background-color: rgb(179, 153, 6);
+}
+
+
+#content{
+    width: 40%;
+    height: 70%;
+    background-image: url(./img/full_post.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    margin-top: 50px;
+    filter:drop-shadow(0px 30px 30px black) drop-shadow(0px -30px 30px black);
+}
+
+.mainForm {
+    width: 50%;
+    margin: auto;
+    padding-top: 250px;
+    font-size: 1.2em;
+}
+
+.mainForm label {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+input[type='text'], input[type='date'], input[type="password"], select, textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 15px auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 10px rgb(27, 27, 27);
+    text-align: left;
+}
+
+.formSubmit{
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    background-color: rgb(27, 27, 27);
+    color: gold;
+    border-style: outset;
+    border-color: gold;
+    border-radius: 2px;
+    box-shadow: 10px 10px 10px rgb(27, 27, 27);
+}
+
+.formSubmit:hover{
+    background-color: black;
+
+}
+
+.postForm {
+    width: 50%;
+    margin: auto;
+    padding-top: 250px;
+    font-size: 1.2em;
+}
+
+.postForm label {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#closePost{
+    width: 50%;
+    height: 40px;
+    margin: 20px auto;
+    text-align: center;
+    color: black;
+    background-color: gold;
+}
+
+#closePost:hover{
+    background-color: rgb(179, 153, 6);
+}
