@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raving About Comics - Add Comic</title>
+    <link rel="stylesheet" type="text/css" href="/mainStyles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script type="text/babel">
+
+        const handleResponse = (xhr) =>{
+
+            const responseHeader = document.querySelector('#responseHeader');
+            
+            switch(xhr.status){
+                case 201:
+                    responseHeader.textContent = "Comic Successfully Added!";
+                    break;
+                case 204:
+                    responseHeader.textContent = "Comic Existed, Information Updated.";
+                    break;
+                case 400:
+                    responseHeader.textContent = "Error: Missing Parameters.";
+                    break;
+                default:
+                    responseHeader.textContent = "Error. Response not implemented.";
+                    break;
+            }
+        };
+
+        const postComic = (e, comicForm) =>{
+
+            e.preventDefault();
+
+            const comicTitle = document.querySelector('#titleField').value;
+            const comicAuthor = document.querySelector('#authorField').value;
+            const comicPublisher = document.querySelector('#publisherField').value;
+            const comicImg = document.querySelector('#coverField').value;
+
+            comicTitle.replace('&', 'And');
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('POST', '/addComic');
+
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = () => handleResponse(xhr);
+
+            const comicParams = `title=${comicTitle}&author=${comicAuthor}&publisher=${comicPublisher}&imgURL=${comicImg}`;
+
+            xhr.send(comicParams);
+            return false;
+        };
+
+
+        const init = () =>{
+            
+            const comicForm = document.querySelector('#addComic');
+            
+            const addComic = (e) => postComic(e, comicForm);
+            
+            const topBar = document.querySelector('#topBar');
+            topBar.onclick = (e) =>{
+                //https://www.w3schools.com/jsref/prop_loc_href.asp
+                location.href = '/index.html';
+            };
+
+            comicForm.addEventListener('submit', addComic);
+        };
+
+        window.onload = init;
+
+    </script>
+</head>
+<header>
+
+    <section id="topBar">
+        <!--<button id="login">Login</button>-->
+        <h1 id="title">Raving About Comics</h1>
+        <h4>Whether Raving Mad or Raving Glad, Let's Talk About Some Graphic Novels.</h4>
+        
+
+    </section>
+
+</header>
+<body>
+    <div id="mainBodyContent">
+        <div id="sideNavBar">
+            <!--Change the HR and <a> to be just a div block (with on click) andgit co border bottom-->
+            <a href="/index.html">Home</a>
+            <a href="/comicsList.html">Comics List</a>
+            <a href="/addComic.html">Add A Comic!</a>
+    
+            <div id="copyright">
+                <p>&copy;Joshua Fredrickson 2020</p>
+            </div>
+    
+        </div>
+        <div class="contentBody">
+
+            <h2>Add in the New Comic Info Below!</h2>
+            <form id="addComic" action="/addComic" method="POST">
+                <label for="title">Comic Title: </label>
+                <input id="titleField" type="text" name="title" required>
+                <label for="author">Comic Author: </label>
+                <input id="authorField" type="text" name="author"required>
+                <label for="publisher">Comic Publisher: </label>
+                <input id="publisherField" type="text" name="publisher" required>
+                <label for="cover" title="This is an optional parameter.">Cover Image URL: </label>
+                <input id="coverField" type="text" name="cover">
+                <input type="submit" id="submitcomic" value="Add Comic">
+            </form>
+
+            <h1 class="centeredText" id="responseHeader"></h1>
+    
+        </div>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raving About Comics - All Comics</title>
+    <link rel="stylesheet" type="text/css" href="/mainStyles.css">
+    <link rel="stylesheet" type="text/css" href="/comicListStyles.css">
+    <link rel="stylesheet" type="text/css" href="/smallComicCardStyle.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script type="text/babel">
+
+        //Function to handle the response of a GET request for list of comic data. 
+        //For each comic in the system, create the DOM elements for a card for it
+        // from it's cover image, title and score and display it in the comic list div.
+        const handleGETRequest = (xhr)=>{
+
+            const response = JSON.parse(xhr.response);
+            console.log(response);
+
+            const list = response.data;
+
+            const comicList = document.querySelector('#comicList');
+
+            for(const comic in list){
+                const comicImg = document.createElement('img');
+                const comicTitle = document.createElement('h3');
+                const comicScore = document.createElement('h3');
+
+                const imageContainer = document.createElement('div');
+                imageContainer.setAttribute('class', 'imageContainer');
+
+                comicImg.src = list[comic].imgURL;
+                comicImg.alt = list[comic].title;
+                comicTitle.textContent = list[comic].title;
+                comicScore.textContent = `Score: ${list[comic].totalScore}`;
+
+                imageContainer.appendChild(comicImg);
+
+                const comicDiv = document.createElement('div');
+                comicDiv.setAttribute('class', 'comicCardContainer');
+                
+                comicDiv.appendChild(imageContainer);
+                comicDiv.appendChild(comicTitle);
+                comicDiv.appendChild(comicScore);
+
+                comicDiv.addEventListener('click', () =>{
+                    location.href = `/comic.html?title=${list[comic].title}`;
+                })
+
+                comicList.appendChild(comicDiv);
+            }
+
+        };
+
+        //Function to send a GET AJAX request for the list of comics
+        const getComicList = () =>{
+            const xhr = new XMLHttpRequest();
+
+            const url = '/getComics?type=list'
+            xhr.open('GET', url);
+            xhr.setRequestHeader('Accept', 'application/json');
+
+            xhr.onload = () => handleGETRequest(xhr);
+            xhr.send();
+
+            return false;
+        };
+
+        //Init function fot the page. Calls getComicList and sets up the topBar 
+        //to relocate to the index on click
+        const init = () =>{
+            getComicList();
+
+            const topBar = document.querySelector('#topBar');
+            topBar.onclick = (e) =>{
+                //https://www.w3schools.com/jsref/prop_loc_href.asp 
+                location.href = '/index.html';
+            };
+        };
+
+        window.onload = init;
+
+    </script>
+</head>
+<header>
+
+    <section id="topBar">
+        <!--<button id="login">Login</button>-->
+        <h1 id="title">Raving About Comics</h1>
+        <h4>Whether Raving Mad or Raving Glad, Let's Talk About Some Graphic Novels.</h4>
+        
+
+    </section>
+
+</header>
+<body>
+    <div id="mainBodyContent">
+        <div id="sideNavBar">
+            <a href="/index.html">Home</a>
+            <a href="/comicsList.html">Comics List</a>
+            <a href="/addComic.html">Add A Comic!</a>
+    
+            <div id="copyright">
+                <p>&copy;Joshua Fredrickson 2020</p>
+            </div>
+    
+        </div>
+        <div class="contentBody">
+
+            <h2>All Comics!</h2>
+            <h3> Don't see the comic you're looking for? <a href="addComic.html" id="addComic">Click here to add one!</a></h3>
+            <div id="comicList">
+
+            </div>
+
+    
+        </div>
+    </div>
+
+    
+</body>
+</html>

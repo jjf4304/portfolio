@@ -1,0 +1,26 @@
+{
+  "name": "ravingaboutcomics",
+  "version": "1.0.0",
+  "description": "Project 1 for IGME 430",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "pretest": "eslint ./src --fix",
+    "test": "echo \"Tests complete\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjf4304/RavingAboutComics.git"
+  },
+  "author": "Joshua Fredrickson",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/jjf4304/RavingAboutComics/issues"
+  },
+  "homepage": "https://github.com/jjf4304/RavingAboutComics#readme",
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  }
+}

@@ -1,0 +1,25 @@
+
+/*Set up as three part grid, img being top and largest, then 
+section for title and large score*/
+.comicCardContainer{
+    display: grid;
+    height: 100%; 
+    grid-template-rows: 70% 10% 20%;
+    column-gap: 1%;
+    text-align: center;
+    box-shadow: 10px 10px rgba(0, 0, 0, .50);
+    /* didn't know you could do this, w3schools once again taught me something cool. 
+    https://www.w3schools.com/cssref/pr_class_cursor.asp
+    */ 
+    cursor: pointer;
+}
+/* sourced and slightly modified from this question
+ https://stackoverflow.com/questions/46090760/controlling-the-size-of-an-image-within-a-css-grid-layout */
+
+.imageContainer > img{
+    width: 200px;;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+}
+

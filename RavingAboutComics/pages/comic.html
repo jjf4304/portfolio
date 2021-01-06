@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raving About Comics - View Comic</title>
+    <link rel="stylesheet" type="text/css" href="/mainStyles.css">
+    <link rel="stylesheet" type="text/css" href="/comicPageStyles.css">
+    <link rel="stylesheet" type="text/css" href="/smallComicCardStyle.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script type="text/babel">
+
+
+        //Function to handle the response of a GET request for the comic data to display.
+        //Generates DOM elements for images and review divs, and sets the data for the 
+        //different fields/containers
+        const handleGETRequest = (xhr) =>{
+
+            const comic = JSON.parse(xhr.response);
+
+            const imgContainer = document.querySelector('#coverImageContainer');
+            imgContainer.innerHTML = '';
+            const titleInfo = document.querySelector('#titleInfo');
+            const authorInfo = document.querySelector('#authorInfo');
+            const publisherInfo = document.querySelector('#publisherInfo');
+            const totalInfo = document.querySelector('#totalInfo');
+
+            const image = document.createElement('img');
+            image.src = comic.imgURL;
+            image.alt = comic.title;
+
+            titleInfo.textContent = comic.title;
+            authorInfo.textContent = comic.author;
+            publisherInfo.textContent = comic.publisher;
+            totalInfo.textContent = comic.totalScore;
+
+            imgContainer.appendChild(image);
+
+            const reviewContainter = document.querySelector('#reviewsBox');
+            reviewContainter.innerHTML = '';
+
+            //Generate and add div's for each review in the comic.
+            for(const review of comic.reviews){
+                const reviewBox = document.createElement('div');
+                reviewBox.setAttribute('class', 'review');
+
+                const scoreDiv = document.createElement('div');
+                scoreDiv.setAttribute('class', 'centeredText');
+
+                const score = document.createElement('h2');
+                score.innerHTML = `Score: ${review.score}`;
+
+                scoreDiv.appendChild(score);
+
+                const written = document.createElement('p');
+                written.setAttribute('class', 'writtenReview');
+                if(review.written === ''){
+                    written.innerHTML = "No Written Portion of the Review.";
+                }
+                else{
+                   written.innerHTML = review.written; 
+                }
+                
+                reviewBox.appendChild(scoreDiv);
+                reviewBox.appendChild(written);
+
+                reviewContainter.appendChild(reviewBox);
+
+            }
+        };
+
+        //Function to start the AJAX GET request for the comic data.
+        //takes in a parameter for the title of the comic to retrieve.
+        const getData = (title) =>{
+
+            const xhr = new XMLHttpRequest();
+
+            const url = `/getComics?type=single&title=${title}`;
+            xhr.open('GET', url);
+            xhr.setRequestHeader('Accept', 'application/json');
+
+            xhr.onload = () => handleGETRequest(xhr);
+            xhr.send();
+
+            return false;
+        };
+
+        //Function to send a POST AJAX request for a new review. Sets up the parameter
+        //body from the fields in the browser, then sends the request. Calls getData() again
+        //on completion to update the page.
+        const postReview = (e, reviewForm, title) =>{
+
+            e.preventDefault();
+
+            const reviewScore = document.querySelector('#scoreField').value;
+            const reviewWritten = document.querySelector('#writtenField').value;
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('POST', '/addReview');
+            
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = () => getData(title);
+
+            const reviewParams = `title=${title}&score=${reviewScore}&written=${reviewWritten}`;
+            xhr.send(reviewParams);
+
+            return false;
+
+        };
+
+        //Init function for the page. Sets up event listeners, gets references to 
+        //the review form/sets up it's submit event function, and gets the title of the
+        //comic from the URL.
+        const init = () =>{
+
+            //src = https://www.sitepoint.com/get-url-parameters-with-javascript/ 
+            const queryString = window.location.search;
+            const params = new URLSearchParams(queryString);
+            const title = params.get('title').replace("%20", " ");
+
+            getData(title);
+
+            const reviewForm = document.querySelector('#addReview');
+
+            const addReview = (e) =>postReview(e, reviewForm, title);
+
+            reviewForm.addEventListener('submit', addReview);
+
+            const topBar = document.querySelector('#topBar');
+            topBar.onclick = (e) =>{
+                //https://www.w3schools.com/jsref/prop_loc_href.asp
+                location.href = '/index.html';
+            };
+        };
+
+        window.onload = init;
+
+    </script>
+</head>
+<header>
+
+    <section id="topBar">
+        <!--<button id="login">Login</button>-->
+        <h1 id="title">Raving About Comics</h1>
+        <h4>Whether Raving Mad or Raving Glad, Let's Talk About Some Graphic Novels.</h4>
+    </section>
+
+</header>
+<body>
+    <div id="mainBodyContent">
+        <div id="sideNavBar">
+            <a href="/index.html">Home</a>
+            <a href="/comicsList.html">Comics List</a>
+            <a href="/addComic.html">Add A Comic!</a>
+    
+            <div id="copyright">
+                <p>&copy;Joshua Fredrickson 2020</p>
+            </div>
+    
+        </div>
+        <div class="contentBody">
+
+            <div id="comicInfo">
+
+                <div id="coverImageContainer">
+
+                </div>
+    
+                <div id="information">
+                    <h2 class="infoLabel">Title: </h2>
+                    <h2 class="info" id="titleInfo"></h2>
+                    <h2 class="infoLabel">Author: </h2>
+                    <h2 class="info" id="authorInfo"></h2>
+                    <h2 class="infoLabel">Publisher: </h2>
+                    <h2 class="info" id="publisherInfo"></h2>
+                    <h2 class="infoLabel">Total Rating: </h2>
+                    <h2 class="info" id="totalInfo"></h2>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="centeredText"> Reviews!</h2>
+
+            </div>
+
+            <div id="reviewsBox">
+
+            </div>
+
+            <div id="addReview">
+                <h2 class="centeredText">Write a Review!</h2>
+                <form id="addReview" action="/addReview" method="POST">
+                    <label for="score">Comic Rating: </label>
+                    <input id="scoreField" type="number" name="score" min='0' max='10' required>
+                    <label for="written">Review (Optional): </label>
+                    <textarea id="writtenField" name="written" rows="4" cols="80"></textarea>
+                    <input type="submit" id="submitReview" value="Add Review">>
+                </form>
+            </div>
+
+    
+        </div>
+    </div>
+
+    
+</body>
+</html>

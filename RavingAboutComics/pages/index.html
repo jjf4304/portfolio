@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raving About Comics - Front Page</title>
+    <link rel="stylesheet" type="text/css" href="/mainStyles.css">
+    <link rel="stylesheet" type="text/css" href="/frontpageStyles.css">
+    <link rel="stylesheet" type="text/css" href="/smallComicCardStyle.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script type="text/babel">
+
+        //Function to handle the response of a GET request to get the front page data.
+        //Creates the necessary DOM elements to display the top 3 scored comics as well as
+        //the top 3 most recently reviewed comics in their respective places in the browser.
+        const handleGETRequest = (xhr)=>{
+
+            const response = JSON.parse(xhr.response);
+            console.log(response);
+
+            const top3 = response.data.top3;
+            const recentReviews = response.data.recentReviews;
+
+            const hotlist = document.querySelector('#hotList');
+            const recentList = document.querySelector('#recentReviews');
+
+            //Create and append the top 3 highest score comic cards.
+            for(const comic in top3){
+                const comicImg = document.createElement('img');
+                const comicTitle = document.createElement('h3');
+                const comicScore = document.createElement('h3');
+
+                const imageContainer = document.createElement('div');
+                imageContainer.setAttribute('class', 'imageContainer');
+
+                comicImg.src = top3[comic].imgURL;
+                comicImg.alt = top3[comic].title;
+                comicTitle.textContent = top3[comic].title;
+                comicScore.textContent = `Score: ${top3[comic].totalScore}`;
+
+                imageContainer.appendChild(comicImg);
+
+                const comicDiv = document.createElement('div');
+                comicDiv.setAttribute('class', 'comicCardContainer');
+                
+                comicDiv.appendChild(imageContainer);
+                comicDiv.appendChild(comicTitle);
+                comicDiv.appendChild(comicScore);
+
+                comicDiv.onclick = (e) =>{
+                    //src https://www.w3schools.com/jsref/prop_loc_href.asp
+                    location.href = `/comic.html?title=${top3[comic].title}`;
+                }
+
+                hotlist.appendChild(comicDiv);
+            }
+
+            //Create and append the top 3 most recent reviewed comic cards.
+            for(const comic in recentReviews){
+                
+                const comicImg = document.createElement('img');
+                const comicTitle = document.createElement('h3');
+                const comicScore = document.createElement('h3');
+
+                const imageContainer = document.createElement('div');
+                imageContainer.setAttribute('class', 'imageContainer');
+
+                comicImg.src = recentReviews[comic].imgURL;
+                comicImg.alt = recentReviews[comic].title;
+                comicTitle.textContent = recentReviews[comic].title;
+                comicScore.textContent = `Score: ${recentReviews[comic].totalScore}`;
+
+                imageContainer.appendChild(comicImg);
+
+                const comicDiv = document.createElement('div');
+                comicDiv.setAttribute('class', 'comicCardContainer');
+                
+                comicDiv.appendChild(imageContainer);
+                comicDiv.appendChild(comicTitle);
+                comicDiv.appendChild(comicScore);
+
+                comicDiv.onclick = (e) =>{
+                    //src https://www.w3schools.com/jsref/prop_loc_href.asp 
+                    location.href = `/comic.html?title=${recentReviews[comic].title}`;
+                }
+
+                recentList.appendChild(comicDiv);
+            }
+
+            return;
+            
+        };
+
+        //Function to send the GET AJAX request for the front page data
+        const getFrontPageData = () =>{
+            const xhr = new XMLHttpRequest();
+
+            const url = '/getComics?type=front'
+            xhr.open('GET', url);
+            xhr.setRequestHeader('Accept', 'application/json');
+
+            xhr.onload = () => handleGETRequest(xhr);
+            xhr.send();
+
+            return false;
+        };
+
+        //Init function for the page. Calls the getFrontPageData function to 
+        //display the top 3 scored and most recent reviewed comics.
+        const init = () =>{
+            getFrontPageData();
+
+            const topBar = document.querySelector('#topBar');
+            topBar.onclick = (e) =>{
+                location.href = '/index.html';
+            };
+        };
+
+        window.onload = init;
+
+    </script>
+</head>
+<header>
+
+    <section id="topBar">
+        <!--<button id="login">Login</button> To be done later-->
+        <h1 id="title">Raving About Comics</h1>
+        <h4>Whether Raving Mad or Raving Glad, Let's Talk About Some Graphic Novels.</h4>
+    
+    </section>
+
+</header>
+<body>
+    <div id="mainBodyContent">
+        <div id="sideNavBar">
+            <a href="/index.html">Home</a>
+            <a href="/comicsList.html">Comics List</a>
+            <a href="/addComic.html">Add A Comic!</a>
+    
+            <div id="copyright">
+                <p>&copy;Joshua Fredrickson 2020</p>
+            </div>
+    
+        </div>
+        <div class="contentBody">
+            <div class = "bodyTitle">
+                <h2>The Hottest Books</h2>
+            </div>
+            <div id="hotList" class="frontComicGrid">
+
+            </div>
+            <div class = "bodyTitle">
+                <h2>Recent Reviews</h2>
+            </div>
+            <div id="recentReviews" class="frontComicGrid">
+
+            </div>
+    
+        </div>
+    </div>
+
+    
+</body>
+</html>
